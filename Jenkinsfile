@@ -9,12 +9,15 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-                sh 'echo Dizzy*22 | sudo -S -k ./run_docker.sh'
+              withAWS(region: 's-east-2', credentials: 'Jenkins'){
+                s3Upload
+              }
+                sh 'echo Dizzy*22 | sudo -S ./capstone/greendeploy/run_docker.sh'
             }
         }
         stage('Push green image') {
             steps {
-                sh 'echo Dizzy*22 | sudo -S -k ./upload_docker.sh'
+                sh 'echo Dizzy*22 | sudo -S ./capstone/greendeploy/upload_docker.sh'
             }
         }
         stage('Create the kubeconfig file') {
