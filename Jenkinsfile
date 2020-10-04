@@ -14,7 +14,8 @@ pipeline {
         }
         stage('Push green image') {
             steps {
-                sh 'echo Dizzy*22 | sudo -S ./capstone/greendeploy/upload_docker.sh'
+                sh 'cd capstone/greendeploy/'
+                sh 'echo Dizzy*22 | sudo -S ./upload_docker.sh'
             }
         }
         stage('Create the kubeconfig file') {
