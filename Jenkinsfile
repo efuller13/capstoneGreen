@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-                sh 'echo findpasswordforjenkins | sudo -S -k ./run_docker.sh'
+                sh 'echo Dizzy*22 | sudo -S -k ./run_docker.sh'
             }
         }
         stage('Push green image') {
             steps {
-                sh 'echo findpasswordforjenkins | sudo -S -k ./upload_docker.sh'
+                sh 'echo Dizzy*22 | sudo -S -k ./upload_docker.sh'
             }
         }
         stage('Create the kubeconfig file') {
