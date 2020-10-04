@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-                sh 'sudo -S ./run_docker.sh'
+                sh '''
+                sudo -S ./run_docker.sh
+                '''
             }
         }
         stage('Push green image') {
