@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-                sh 'sudo ./run_docker.sh'
+                sh 'sudo -s ./run_docker.sh'
             }
         }
         stage('Push green image') {
             steps {
-                sh 'sudo ./upload_docker.sh'
+                sh 'sudo -s ./upload_docker.sh'
             }
         }
         stage('Create the kubeconfig file') {
