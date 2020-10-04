@@ -10,7 +10,7 @@ pipeline {
         stage('Build green image') {
             steps {
                sh '''
-                              cd capstone/greendeploy/
+                              echo Dizzy*22 | sudo -S cd capstone/greendeploy/
                               echo Dizzy*22 | sudo -S ./run_docker.sh
                  '''
             }
@@ -18,7 +18,7 @@ pipeline {
         stage('Push green image') {
             steps {
                sh '''
-                              cd capstone/greendeploy/
+                              echo Dizzy*22 | sudo -S cd capstone/greendeploy/
                               echo Dizzy*22 | sudo -S ./upload_docker.sh
                  '''
             }
