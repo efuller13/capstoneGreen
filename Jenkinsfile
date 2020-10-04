@@ -25,14 +25,34 @@ pipeline {
                             # Step 3: 
                             # Run flask app
                             docker run -p 8000:80 greenimage
+                            
+                            # Step 4:
+                            # Exit docker
+                            exit
                  '''
             }
         }
         stage('Push green image') {
             steps {
                sh '''
-                              echo Dizzy*22 | sudo -S cd capstone/greendeploy/
-                              echo Dizzy*22 | sudo -S ./upload_docker.sh
+                            #!/usr/bin/env bash
+                            # This file tags and uploads an image to Docker Hub
+
+                            # Assumes that an image is built via `run_docker.sh`
+
+                            # Step 1:
+                            # Create dockerpath
+                            # dockerpath=<your docker ID/path>
+                            dockerpath=greenimage
+
+                            # Step 2:  
+                            # Authenticate & tag
+                            echo "Docker ID and Image: $dockerpath"
+                            docker login --username efuller13
+                            docker tag greenimage efuller13/greenimage
+                            # Step 3:
+                            # Push image to a docker repository
+                            docker push efuller13/greenimage
                  '''
             }
         }
