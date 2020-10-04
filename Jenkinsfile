@@ -9,9 +9,6 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-              withAWS(region: 's-east-2', credentials: 'Jenkins'){
-                s3Upload
-              }
                 sh 'echo Dizzy*22 | sudo -S ./capstone/greendeploy/run_docker.sh'
             }
         }
