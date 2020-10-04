@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build green image') {
             steps {
-                echo 'Testing..'
+                sh'./run_docker.sh'
             }
         }
         stage('Push green image') {
