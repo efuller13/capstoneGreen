@@ -17,6 +17,7 @@ pipeline {
                             # Step 1:
                             # Build image and add a descriptive tag
                             docker build --tag=greenimage .
+                            exit
 
                             # Step 2: 
                             # List docker images
@@ -25,7 +26,6 @@ pipeline {
                             # Step 3: 
                             # Run flask app
                             docker run -p 8000:80 greenimage
-                            exit
                  '''
             }
         }
