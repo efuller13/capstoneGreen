@@ -45,7 +45,7 @@ pipeline {
                             # Step 2:  
                             # Authenticate & tag
                             echo "Docker ID and Image: $dockerpath"
-                            docker login --username efuller13
+                            winpty docker login --username efuller13
                             docker tag greenimage efuller13/greenimage
                             # Step 3:
                             # Push image to a docker repository
