@@ -45,7 +45,7 @@ pipeline {
                             # Step 2:  
                             # Authenticate & tag
                             echo "Docker ID and Image: $dockerpath"
-                            winpty docker login --username efuller13
+                            docker login --username efuller13 --password Dizzy*22
                             docker tag greenimage efuller13/greenimage
                             # Step 3:
                             # Push image to a docker repository
