@@ -24,8 +24,8 @@ pipeline {
 
                             # Step 3: 
                             # Run flask app
-                            docker run -p 8000:80 greenimage
-                            exit 1
+                            docker run -p 8000:80 greenimage exit
+
                  '''
             }
         }
